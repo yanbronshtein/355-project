@@ -293,7 +293,7 @@ def write_json(data, filename='test.json'):
     with open(filename,'w') as f: 
         json.dump(data, f, indent=4) 
       
-@csrf_exempt     
+@csrf_exempt     #TODO: figure out what this means
 def store_game(request):
     	
 	x = request.POST.get('last_move')

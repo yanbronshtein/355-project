@@ -83,25 +83,29 @@ def userMove():
 
 
 def checkForWinner():
-
+    #Horizontal first row win for AI
     if(move[0]==AI_XO and move[1]==AI_XO and move[2]==AI_XO):
         resetBoard()
         set(0,AI_XO)
         set(1,AI_XO)
         set(2,AI_XO)
         return 1
+    #Horizontal second row win for AI
     elif(move[3]==AI_XO and move[4]==AI_XO and move[5]==AI_XO ):
         resetBoard()
         set(3,AI_XO)
         set(4,AI_XO)
         set(5,AI_XO)
         return 1
+        
+    #Horizontal third row win for AI
     elif(move[6]==AI_XO and move[7]==AI_XO and move[8]==AI_XO ):
         resetBoard()
         set(6,AI_XO)
         set(7,AI_XO)
         set(8,AI_XO)
         return 1
+    #Vertical first column win for AI
     elif(move[0]==AI_XO and move[3]==AI_XO and move[6]==AI_XO ):
 
         resetBoard()
@@ -109,24 +113,31 @@ def checkForWinner():
         set(3,AI_XO)
         set(6,AI_XO)
         return 1
+    
+    #Vertical second column win for AI
     elif(move[1]==AI_XO and move[4]==AI_XO and move[7]==AI_XO ):
         resetBoard()
         set(1,AI_XO)
         set(4,AI_XO)
         set(7,AI_XO)
         return 1
+    
+    #Vertical third column win for AI
     elif(move[2]==AI_XO and move[5]==AI_XO and move[8]==AI_XO ):
         resetBoard()
         set(2,AI_XO)
         set(5,AI_XO)
         set(8,AI_XO)
         return 1
+    #First diagonal win for AI
     elif(move[0]==AI_XO and move[4]==AI_XO and move[8]==AI_XO ):
         resetBoard()
         set(0,AI_XO)
         set(4,AI_XO)
         set(8,AI_XO)
         return 1
+    
+    #Second diagonal win for AI
     elif(move[6]==AI_XO and move[4]==AI_XO and move[2]==AI_XO ):
         resetBoard()
         set(6,AI_XO)
@@ -134,7 +145,7 @@ def checkForWinner():
         set(2,AI_XO)
         return 1
 
-
+    #First row win for user
     elif(move[0]==userXO and move[1]==userXO and move[2]==userXO):
         resetBoard()
         set(0,userXO)
@@ -142,42 +153,53 @@ def checkForWinner():
         set(2,userXO)
         return -1
 
+    #Second row win for user
     elif(move[3]==userXO and move[4]==userXO and move[5]==userXO ):
         resetBoard()
         set(3,userXO)
         set(4,userXO)
         set(5,userXO)
         return -1
+    #Third row win for user
     elif(move[6]==userXO and move[7]==userXO and move[8]==userXO ):
         resetBoard()
         set(6,userXO)
         set(7,userXO)
         set(8,userXO)
         return -1
+    #First column win for user
     elif(move[0]==userXO and move[3]==userXO and move[6]==userXO ):
         resetBoard()
         set(0,userXO)
         set(3,userXO)
         set(6,userXO)
         return -1
+    
+    #Second column win for the user
     elif(move[1]==userXO and move[4]==userXO and move[7]==userXO ):
         resetBoard()
         set(1,userXO)
         set(4,userXO)
         set(7,userXO)
         return -1
+    
+    #Third column win for the user
     elif(move[2]==userXO and move[5]==userXO and move[8]==userXO ):
         resetBoard()
         set(2,userXO)
         set(5,userXO)
         set(8,userXO)
         return -1
+    
+    #First diagonal win for the user
     elif(move[0]==userXO and move[4]==userXO and move[8]==userXO ):
         resetBoard()
         set(0,userXO)
         set(4,userXO)
         set(8,userXO)
         return -1
+    
+    #Second diagonal win for the user
     elif(move[6]==userXO and move[4]==userXO and move[2]==userXO ):
         resetBoard()
         set(6,userXO)
@@ -185,13 +207,14 @@ def checkForWinner():
         set(2,userXO)
         return -1
 
+    #Return 0 means that it is a draw
     else:
         return 0
 
 
 def chechIfBoardIsFull():
 
-    checkBoard=1
+    checkBoard=1 #TODO: why not use a boolean flag instead? It would be more intuitive. 
     for i in range(0,9):
         if(move[i]==" "):
             checkBoard=0
